@@ -38,8 +38,8 @@ public class FormValidator {
 
 			public EmailRecipient(String e) {
 				email = e;
-				Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(email); // locally declared regex is declared final
-																			// so it can be accessed here
+				// locally declared RegEx is declared final so it can be accessed here
+				Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(email);
 				valid = matcher.find();
 
 			}

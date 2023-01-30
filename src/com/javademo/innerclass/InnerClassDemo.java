@@ -15,5 +15,15 @@ public class InnerClassDemo {
 		System.out.println(FormValidator.validatePhoneNumber("12340"));
 		System.out.println(FormValidator.validateEmail("test@testemail.com"));
 		System.out.println(FormValidator.validateEmail("test@testemail.c"));
+
+		// Anonymous class defined in Adder interface and implemented in AdderGenerator
+		Adder adder = AdderGenerator.getAdder(5);
+		System.out.println(adder.add(10));
+		System.out.println(adder.add(15));
+		
+		adder = AdderGenerator.getAdder(15);
+		System.out.println(adder.add(10));
+		System.out.println(adder.add(15));
+		
 	}
 }
