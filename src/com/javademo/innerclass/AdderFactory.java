@@ -1,8 +1,8 @@
 package com.javademo.innerclass;
 
-public class AdderGenerator {
+public class AdderFactory {
 
-	public static Adder getAdder(int base) {
+	public static Adder get(int base) {
 		// Returning anonymous class here
 		return new Adder() {
 			@Override
