@@ -20,10 +20,22 @@ public class InnerClassDemo {
 		Adder adder = AdderFactory.get(5);
 		System.out.println(adder.add(10));
 		System.out.println(adder.add(15));
-		
-		adder = AdderFactory.get(15);
+
+		// can be implemented directly here
+		adder = new Adder() {
+			@Override
+			public int add(int i) {
+				return i + 2;
+			}
+		};
 		System.out.println(adder.add(10));
+
+		// can also provide behavior using lambda
+		// though this can only be done if Adder has only one method in which case it
+		// becomes functional interface
+		adder = (i) -> i + 1;
+
 		System.out.println(adder.add(15));
-		
+
 	}
 }
