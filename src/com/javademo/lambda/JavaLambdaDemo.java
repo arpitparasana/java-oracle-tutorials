@@ -2,6 +2,7 @@ package com.javademo.lambda;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 public class JavaLambdaDemo {
@@ -34,6 +35,13 @@ public class JavaLambdaDemo {
 		printWithPredicate(characters, (p) -> p.getType().equals(Type.HOBBIT.toString()));
 		System.out.println();
 		printWithPredicate(characters, (p) -> true); // print all
+
+		System.out.println("---------------------------------------");
+		printWithPredicateAndConsumer(characters, (p) -> p.getType().equals(Type.ELF.toString()),
+				(p) -> System.out.println(p));
+		System.out.println();
+		printWithPredicateAndConsumer(characters, (p) -> p.getType().equals(Type.ELF.toString()),
+				(p) -> System.out.println(p.toString().toUpperCase()));
 	}
 
 	public static void printWithAnonymousClass(List<Person> list, Check c) {
@@ -56,6 +64,14 @@ public class JavaLambdaDemo {
 		for (Person person : list) {
 			if (p.test(person)) {
 				System.out.println(person.toString());
+			}
+		}
+	}
+
+	public static void printWithPredicateAndConsumer(List<Person> list, Predicate<Person> p, Consumer<Person> c) {
+		for (Person person : list) {
+			if (p.test(person)) {
+				c.accept(person);
 			}
 		}
 	}
