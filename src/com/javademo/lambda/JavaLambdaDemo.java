@@ -17,7 +17,6 @@ public class JavaLambdaDemo {
 		characters.add(new Person("Arwen", "Undómiel", 160, Type.ELF));
 		characters.add(new Person("Legolas", "Greenleaf", 150, Type.ELF));
 
-		System.out.println("---------------------------------------");
 		printWithAnonymousClass(characters, new Check() {
 
 			@Override
@@ -26,21 +25,23 @@ public class JavaLambdaDemo {
 			}
 		});
 
-		System.out.println("---------------------------------------");
+		System.out.println("\n-------------------------------------------------\n");
 		printWithLambda(characters, (p) -> p.getAge() < 100);
 		System.out.println();
 		printWithLambda(characters, (p) -> p.getAge() < 50);
 
-		System.out.println("---------------------------------------");
+		System.out.println("\n-------------------------------------------------\n");
 		printWithPredicate(characters, (p) -> p.getType().equals(Type.HOBBIT.toString()));
 		System.out.println();
 		printWithPredicate(characters, (p) -> true); // print all
 
-		System.out.println("---------------------------------------");
+		System.out.println("\n-------------------------------------------------\n");
 		printWithPredicateAndConsumer(characters, (p) -> p.getType().equals(Type.ELF.toString()),
 				(p) -> System.out.println(p));
 		System.out.println();
-		printWithPredicateAndConsumer(characters, (p) -> p.getType().equals(Type.ELF.toString()),
+
+		// Using method reference for isElf
+		printWithPredicateAndConsumer(characters, JavaLambdaDemo::isElf,
 				(p) -> System.out.println(p.toString().toUpperCase()));
 	}
 
@@ -74,6 +75,10 @@ public class JavaLambdaDemo {
 				c.accept(person);
 			}
 		}
+	}
+
+	public static boolean isElf(Person p) {
+		return p.getType().equals(Type.ELF.toString());
 	}
 }
 
