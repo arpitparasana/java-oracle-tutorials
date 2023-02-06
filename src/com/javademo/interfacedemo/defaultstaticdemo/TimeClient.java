@@ -10,12 +10,13 @@ public interface TimeClient {
     void setDate(int year, int month, int day);
     void setDateTime(int year, int month, int day, int hour, int minute, int second);
     LocalDateTime getLocalDateTime();
-
+    
+    
+    // default and static methods in interface
     default ZonedDateTime getZonedDateTime(String zonedString) {
         return ZonedDateTime.of(getLocalDateTime(), getZoneId(zonedString));
     }
 
-    // default and static methods in interface
     static ZoneId getZoneId(String zoneString){
         try {
             return ZoneId.of(zoneString);
