@@ -16,15 +16,12 @@ public interface TimeClient {
     default ZonedDateTime getZonedDateTime(String zonedString) {
         return ZonedDateTime.of(getLocalDateTime(), getZoneId(zonedString));
     }
-
+        
     static ZoneId getZoneId(String zoneString){
         try {
             return ZoneId.of(zoneString);
-        } catch(DateTimeException exception) {
-            System.out.println("Invalid Zone String provided, using system default");
-            return ZoneId.systemDefault();
-        } catch(NullPointerException exception) {
-            System.out.println("Empty Zone String provided, using system default");
+        } catch(DateTimeException | NullPointerException exception) {
+            System.out.println("Empty or Invalid Zone String provided, using system default");
             return ZoneId.systemDefault();
         }
     }
