@@ -10,7 +10,7 @@ public class HeavyThread1Runnable implements Runnable {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            System.out.println("Hello World from thread 1");
+            System.out.println("...hello world from thread: " + Thread.currentThread().getName());
         }
     }
 }

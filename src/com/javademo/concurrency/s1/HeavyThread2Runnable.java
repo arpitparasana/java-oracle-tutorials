@@ -10,7 +10,7 @@ public class HeavyThread2Runnable implements Runnable {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            System.out.println("Good Morning from thread 2");
+            System.out.println("...good morning from thread: " + Thread.currentThread().getName());
         }
     }
 }
