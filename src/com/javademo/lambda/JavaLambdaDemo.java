@@ -31,12 +31,12 @@ public class JavaLambdaDemo {
 		printWithLambda(characters, (p) -> p.getAge() < 50);
 
 		System.out.println("\n-------------------------------------------------\n");
-		printWithPredicate(characters, (p) -> p.getType().equals(Type.HOBBIT.toString()));
+		printWithPredicate(characters, (p) -> p.getType() == Type.HOBBIT);
 		System.out.println();
 		printWithPredicate(characters, (p) -> true); // print all
 
 		System.out.println("\n-------------------------------------------------\n");
-		printWithPredicateAndConsumer(characters, (p) -> p.getType().equals(Type.ELF.toString()),
+		printWithPredicateAndConsumer(characters, (p) -> p.getType() == Type.ELF,
 				(p) -> System.out.println(p));
 		System.out.println();
 
@@ -78,7 +78,7 @@ public class JavaLambdaDemo {
 	}
 
 	public static boolean isElf(Person p) {
-		return p.getType().equals(Type.ELF.toString());
+		return p.getType() == Type.ELF;
 	}
 }
 

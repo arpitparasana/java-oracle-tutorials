@@ -5,13 +5,13 @@ public class Person {
 	private String firstName;
 	private String lastName;
 	private int age;
-	private String type;
+	private Type type;
 
 	public Person(String firstName, String lastName, int age, Type t) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.age = age;
-		this.type = t.toString();
+		this.type = t;
 	}
 
 	public String getFirstName() {
@@ -38,11 +38,11 @@ public class Person {
 		this.age = age;
 	}
 
-	public String getType() {
+	public Type getType() {
 		return type;
 	}
 
-	public void setType(String type) {
+	public void setType(Type type) {
 		this.type = type;
 	}
 
